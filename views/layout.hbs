@@ -1,10 +1,25 @@
+<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" />
-    </head>
-    <body>
-        {{{ body }}}
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Ma Bibliothèque de Jeux</h1>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/games">Jeux</a>
+    </nav>
+  </header>
+
+  <main>
+    {{{body}}} <!-- Ici s'affiche le contenu des vues -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Yann - Titouan</p>
+  </footer>
+</body>
 </html>

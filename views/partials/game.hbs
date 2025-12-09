@@ -1,0 +1,17 @@
+{{!-- game.hbs --}}
+<h2>Liste des Jeux</h2>
+
+<ul>
+  {{#each jeux}}
+    <li>
+      <h3>{{titre}}</h3>
+      <p><strong>Description :</strong> {{description}}</p>
+      <p><strong>Date de sortie :</strong> {{dateSortie}}</p>
+      <p><strong>Genre :</strong> {{genre.nom}}</p>
+      <p><strong>Éditeur :</strong> {{editeur.nom}}</p>
+      {{#if misEnAvant}}
+        <p style="color: red;">⭐ Mis en avant</p>
+      {{/if}}
+    </li>
+  {{/each}}
+</ul>

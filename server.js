@@ -1,9 +1,11 @@
 const express = require('express');
+const { PrismaClient } = require("@prisma/client");
 const { seedGenres } = require('./prisma/seed');
 const hbs = require("hbs");
 const path = require("path");
 
 const app = express();
+const prisma = new PrismaClient();
 const PORT = 3000;
 
 
@@ -22,6 +24,21 @@ hbs.registerPartials(path.join(__dirname, "views", "partials")); // On définit 
 app.get('/', (req, res) => {
   res.send('Hello World !');
 });
+
+
+
+
+app.get("/games", async (req, res) => {
+  const jeux = await prisma.jeu.findMany({
+    include: { genre: true, editeur: true }
+  });
+
+  res.render("partials/game", {
+    title: "Liste des Jeux",
+    jeux
+  });
+});
+
 
 // Démarrage du serveur avec initialisation des genres
 async function demarrerServeur() {
