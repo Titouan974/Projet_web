@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output = "./generated/client"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -14,18 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
-}
-
 model Jeu {
   id           Int          @id @default(autoincrement())
   titre        String
   description  String?
-  dateSortie   DateTime
+  dateSortie   DateTime     // Utiliser format: 2024-12-09T00:00:00Z
   genreId      Int
   editeurId    Int
   misEnAvant   Boolean      @default(false)
