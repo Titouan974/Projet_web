@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1",
-    "prisma": "^6.19.0",
+    "hbs": "^4.2.0",
+    "prisma": "6.19.0",
     "sqlite3": "^5.1.7"
   }
 }
