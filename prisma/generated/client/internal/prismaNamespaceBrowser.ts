@@ -49,7 +49,10 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 
 export const ModelName = {
-  User: 'User'
+  User: 'User',
+  Jeu: 'Jeu',
+  GenreDeJeu: 'GenreDeJeu',
+  EditeurDeJeu: 'EditeurDeJeu'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -73,6 +76,35 @@ export const UserScalarFieldEnum = {
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const JeuScalarFieldEnum = {
+  id: 'id',
+  titre: 'titre',
+  description: 'description',
+  dateSortie: 'dateSortie',
+  genreId: 'genreId',
+  editeurId: 'editeurId',
+  misEnAvant: 'misEnAvant'
+} as const
+
+export type JeuScalarFieldEnum = (typeof JeuScalarFieldEnum)[keyof typeof JeuScalarFieldEnum]
+
+
+export const GenreDeJeuScalarFieldEnum = {
+  id: 'id',
+  nom: 'nom'
+} as const
+
+export type GenreDeJeuScalarFieldEnum = (typeof GenreDeJeuScalarFieldEnum)[keyof typeof GenreDeJeuScalarFieldEnum]
+
+
+export const EditeurDeJeuScalarFieldEnum = {
+  id: 'id',
+  nom: 'nom'
+} as const
+
+export type EditeurDeJeuScalarFieldEnum = (typeof EditeurDeJeuScalarFieldEnum)[keyof typeof EditeurDeJeuScalarFieldEnum]
 
 
 export const SortOrder = {

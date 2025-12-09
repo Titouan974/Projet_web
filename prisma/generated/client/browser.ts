@@ -22,3 +22,18 @@ export * from './enums.ts';
  * 
  */
 export type User = Prisma.UserModel
+/**
+ * Model Jeu
+ * 
+ */
+export type Jeu = Prisma.JeuModel
+/**
+ * Model GenreDeJeu
+ * 
+ */
+export type GenreDeJeu = Prisma.GenreDeJeuModel
+/**
+ * Model EditeurDeJeu
+ * 
+ */
+export type EditeurDeJeu = Prisma.EditeurDeJeuModel

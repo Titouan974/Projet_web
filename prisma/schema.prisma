@@ -20,3 +20,27 @@ model User {
   name      String?
   createdAt DateTime @default(now())
 }
+
+model Jeu {
+  id           Int          @id @default(autoincrement())
+  titre        String
+  description  String?
+  dateSortie   DateTime
+  genreId      Int
+  editeurId    Int
+  misEnAvant   Boolean      @default(false)
+  genre        GenreDeJeu   @relation(fields: [genreId], references: [id])
+  editeur      EditeurDeJeu @relation(fields: [editeurId], references: [id])
+}
+
+model GenreDeJeu {
+  id          Int    @id @default(autoincrement())
+  nom         String @unique
+  jeux        Jeu[]
+}
+
+model EditeurDeJeu {
+  id          Int    @id @default(autoincrement())
+  nom         String @unique
+  jeux        Jeu[]
+}

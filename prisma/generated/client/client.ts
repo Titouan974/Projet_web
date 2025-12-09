@@ -49,3 +49,18 @@ path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node"
  * 
  */
 export type User = Prisma.UserModel
+/**
+ * Model Jeu
+ * 
+ */
+export type Jeu = Prisma.JeuModel
+/**
+ * Model GenreDeJeu
+ * 
+ */
+export type GenreDeJeu = Prisma.GenreDeJeuModel
+/**
+ * Model EditeurDeJeu
+ * 
+ */
+export type EditeurDeJeu = Prisma.EditeurDeJeuModel
