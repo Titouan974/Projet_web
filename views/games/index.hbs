@@ -1,0 +1,9 @@
+<h1>Tous les jeux</h1>
+<ul>
+  {{#each games}}
+    <li>
+      <a href="/games/{{id}}">{{title}}</a>
+      — {{genre.name}} — {{publisher.name}}
+    </li>
+  {{/each}}
+</ul>

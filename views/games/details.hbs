@@ -1,0 +1,12 @@
+<h1>{{game.title}}</h1>
+<p>{{game.description}}</p>
+<p>Date de sortie : {{formatDate game.releaseDate}}</p>
+<p>Genre : <a href="/genres/{{game.genre.id}}">{{game.genre.name}}</a></p>
+<p>Éditeur : <a href="/publishers/{{game.publisher.id}}">{{game.publisher.name}}</a></p>
+
+<p>
+  <a href="/games/{{game.id}}/edit">Modifier</a>
+  <form action="/games/{{game.id}}/delete" method="POST" style="display:inline">
+    <button type="submit">Supprimer</button>
+  </form>
+</p>

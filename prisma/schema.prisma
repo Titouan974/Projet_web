@@ -13,26 +13,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Jeu {
-  id           Int          @id @default(autoincrement())
-  titre        String
-  description  String?
-  dateSortie   DateTime     // Utiliser format: 2024-12-09T00:00:00Z
-  genreId      Int
-  editeurId    Int
-  misEnAvant   Boolean      @default(false)
-  genre        GenreDeJeu   @relation(fields: [genreId], references: [id])
-  editeur      EditeurDeJeu @relation(fields: [editeurId], references: [id])
+model Game {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+  releaseDate DateTime
+  featured    Boolean   @default(false)
+  genre       Genre     @relation(fields: [genreId], references: [id])
+  genreId     Int
+  publisher   Publisher @relation(fields: [publisherId], references: [id])
+  publisherId Int
+
+  @@index([title])
 }
 
-model GenreDeJeu {
-  id          Int    @id @default(autoincrement())
-  nom         String @unique
-  jeux        Jeu[]
+model Genre {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  games Game[]
 }
 
-model EditeurDeJeu {
-  id          Int    @id @default(autoincrement())
-  nom         String @unique
-  jeux        Jeu[]
+model Publisher {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  games Game[]
 }

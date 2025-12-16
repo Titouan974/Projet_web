@@ -1,25 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>{{title}}</title>
-  <link rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <title>Vapeur</title>
 </head>
 <body>
-  <header>
-    <h1>Ma Bibliothèque de Jeux</h1>
-    <nav>
-      <a href="/">Accueil</a>
-      <a href="/games">Jeux</a>
-    </nav>
-  </header>
-
+  {{> header }}
   <main>
-    {{{body}}} <!-- Ici s'affiche le contenu des vues -->
+    {{{ body }}}
   </main>
-
-  <footer>
-    <p>&copy; 2025 - Yann - Titouan</p>
-  </footer>
+  {{> footer }}
 </body>
 </html>

@@ -1,0 +1,21 @@
+<h1>Éditeurs</h1>
+
+<p>
+  <a href="/publishers/new">Créer un nouvel éditeur</a>
+</p>
+
+{{#if publishers.length}}
+  <ul>
+    {{#each publishers}}
+      <li>
+        <a href="/publishers/{{id}}">{{name}}</a>
+        — <a href="/publishers/{{id}}/edit">Modifier</a>
+        <form action="/publishers/{{id}}/delete" method="POST" style="display:inline; margin-left:8px;">
+          <button type="submit" onclick="return confirm('Supprimer cet éditeur ?')">Supprimer</button>
+        </form>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>Aucun éditeur pour le moment.</p>
+{{/if}}

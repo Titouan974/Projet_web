@@ -1,0 +1,13 @@
+<h1>Modifier l'éditeur</h1>
+
+<form action="/publishers/{{publisher.id}}" method="POST">
+  <label>
+    Nom
+    <input type="text" name="name" value="{{publisher.name}}" required />
+  </label>
+
+  <div style="margin-top:12px;">
+    <button type="submit">Enregistrer</button>
+    <a href="/publishers/{{publisher.id}}" style="margin-left:8px;">Annuler</a>
+  </div>
+</form>

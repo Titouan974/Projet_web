@@ -1,0 +1,23 @@
+<h1>{{publisher.name}}</h1>
+
+<p>
+  <a href="/publishers/{{publisher.id}}/edit">Modifier l'éditeur</a>
+  <form action="/publishers/{{publisher.id}}/delete" method="POST" style="display:inline; margin-left:8px;">
+    <button type="submit" onclick="return confirm('Supprimer cet éditeur et tous ses jeux ?')">Supprimer</button>
+  </form>
+</p>
+
+<h2>Jeux publiés</h2>
+
+{{#if publisher.games.length}}
+  <ul>
+    {{#each publisher.games}}
+      <li>
+        <a href="/games/{{id}}">{{title}}</a>
+        — {{#if genre}}{{genre.name}}{{/if}}
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>Aucun jeu pour cet éditeur.</p>
+{{/if}}

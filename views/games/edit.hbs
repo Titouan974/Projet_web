@@ -1,0 +1,46 @@
+<h1>Modifier le jeu</h1>
+
+<form action="/games/{{game.id}}" method="POST">
+  <label>
+    Titre
+    <input type="text" name="title" value="{{game.title}}" required />
+  </label>
+
+  <label>
+    Description
+    <textarea name="description" rows="6">{{game.description}}</textarea>
+  </label>
+
+  <label>
+    Date de sortie
+    <input type="date" name="releaseDate" value="{{game.releaseDate}}" required />
+  </label>
+
+  <label>
+    Genre
+    <select name="genreId" required>
+      {{#each genres}}
+        <option value="{{id}}" {{#ifCond id ../game.genreId}}selected{{/ifCond}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+
+  <label>
+    Éditeur
+    <select name="publisherId" required>
+      {{#each publishers}}
+        <option value="{{id}}" {{#ifCond id ../game.publisherId}}selected{{/ifCond}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+
+  <label>
+    Mis en avant
+    <input type="checkbox" name="featured" {{#if game.featured}}checked{{/if}} />
+  </label>
+
+  <div style="margin-top:12px;">
+    <button type="submit">Enregistrer</button>
+    <a href="/games/{{game.id}}" style="margin-left:8px;">Annuler</a>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+<h1>Jeux mis en avant</h1>
+
+{{#if featured.length}}
+  <ul>
+    {{#each featured}}
+      <li>
+        <a href="/games/{{id}}">{{title}}</a>
+        — {{genre.name}} — {{publisher.name}}
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>Aucun jeu mis en avant pour le moment.</p>
+{{/if}}
