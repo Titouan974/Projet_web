@@ -3,7 +3,8 @@
   {{#each games}}
     <li>
       <a href="/games/{{id}}">{{title}}</a>
-      — {{genre.name}} — {{publisher.name}}
+      — <a href="/genres/{{genre.id}}">{{genre.name}}</a>
+       — <a href="/publishers/{{publisher.id}}">{{publisher.name}}</a>
     </li>
   {{/each}}
 </ul>

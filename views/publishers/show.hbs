@@ -14,7 +14,7 @@
     {{#each publisher.games}}
       <li>
         <a href="/games/{{id}}">{{title}}</a>
-        — {{#if genre}}{{genre.name}}{{/if}}
+        — {{#if genre}}<a href="/genres/{{genre.id}}">{{genre.name}}</a>{{/if}}
       </li>
     {{/each}}
   </ul>

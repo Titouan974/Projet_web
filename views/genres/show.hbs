@@ -1,6 +1,6 @@
 <h1>Genre : {{genre.name}}</h1>
 <ul>
   {{#each genre.games}}
-    <li><a href="/games/{{id}}">{{title}}</a> — {{publisher.name}}</li>
+    <li><a href="/games/{{id}}">{{title}}</a> — <a href="/publishers/{{publisher.id}}">{{publisher.name}}</a></li>
   {{/each}}
 </ul>
