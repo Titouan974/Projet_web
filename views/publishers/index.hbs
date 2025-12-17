@@ -11,7 +11,7 @@
         <a href="/publishers/{{id}}">{{name}}</a>
         — <a href="/publishers/{{id}}/edit">Modifier</a>
         <form action="/publishers/{{id}}/delete" method="POST" style="display:inline; margin-left:8px;">
-          <button type="submit" onclick="return confirm('Supprimer cet éditeur ?')">Supprimer</button>
+          <button type="submit" onclick="return confirm('ATTENTION : Supprimer cet éditeur supprimera TOUT ses jeux ?')">Supprimer</button>
         </form>
       </li>
     {{/each}}
