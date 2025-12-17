@@ -12,27 +12,6 @@ Vapeur est une application web simple pour gérer une collection de jeux vidéo 
 - Toutes les listes sont triées par ordre alphabétique
 - Navigation principale et vues Handlebars
 
-## Prérequis
-- Node.js (>= 18 recommandé)
-- npm
-
-## Installation (sur la machine du correcteur)
-```bash
-git clone <url-du-repo>
-cd vapeur
-npm install
-# Générer le client Prisma (optionnel mais recommandé)
-npx prisma generate
-# Appliquer les migrations (le correcteur exécutera cette commande)
-npx prisma migrate deploy
-# Lancer l'application
-npm run start
-
-
-
-
-
-
-
-
-
+### Contributeurs
+VIGOUROUX Titouan
+MAHINC Yann
