@@ -2,8 +2,14 @@
 
 <p>
   <a href="/publishers/{{publisher.id}}/edit">Modifier l'éditeur</a>
-  <form action="/publishers/{{publisher.id}}/delete" method="POST" style="display:inline; margin-left:8px;">
-    <button type="submit" onclick="return confirm('Supprimer cet éditeur et tous ses jeux ?')">Supprimer</button>
+  <form
+    action="/publishers/{{publisher.id}}/delete"
+    method="POST"
+    style="display:inline; margin-left:8px;"
+    data-confirm="delete-publisher"
+    data-publisher-name="{{publisher.name}}"
+    data-publisher-games="{{#if publisher.games.length}}{{#each publisher.games}}{{title}}{{#unless @last}}, {{/unless}}{{/each}}{{else}}(aucun jeu){{/if}}">
+    <button type="submit">Supprimer</button>
   </form>
 </p>
 
@@ -21,3 +27,28 @@
 {{else}}
   <p>Aucun jeu pour cet éditeur.</p>
 {{/if}}
+
+<script>
+  (function () {
+    const forms = document.querySelectorAll('form[data-confirm="delete-publisher"]');
+    forms.forEach((form) => {
+      form.addEventListener("submit", function (e) {
+        const name = form.getAttribute("data-publisher-name") || "cet éditeur";
+        const games = form.getAttribute("data-publisher-games") || "(aucun jeu)";
+        const list = games
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean)
+          .map((title) => `- ${title}`)
+          .join("\n");
+        const message =
+          `ATTENTION : Supprimer "${name}" supprimera aussi tous ces jeux :\n\n` +
+          (list || "- (aucun jeu)") +
+          "\n\nContinuer ?";
+        if (!confirm(message)) {
+          e.preventDefault();
+        }
+      });
+    });
+  })();
+</script>

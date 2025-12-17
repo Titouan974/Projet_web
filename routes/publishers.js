@@ -6,7 +6,15 @@ const prisma = new PrismaClient();
 
 // Liste des éditeurs
 router.get("/", async (req, res) => {
-  const publishers = await prisma.publisher.findMany({ orderBy: { name: "asc" } });
+  const publishers = await prisma.publisher.findMany({
+    orderBy: { name: "asc" },
+    include: {
+      games: {
+        select: { title: true },
+        orderBy: { title: "asc" }
+      }
+    }
+  });
   res.render("publishers/index", { publishers });
 });
 
